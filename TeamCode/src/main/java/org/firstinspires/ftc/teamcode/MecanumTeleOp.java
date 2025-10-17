@@ -16,6 +16,11 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor backLeftMotor = hardwareMap.dcMotor.get("backLeftMotor");
         DcMotor frontRightMotor = hardwareMap.dcMotor.get("frontRightMotor");
         DcMotor backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
+        DcMotor leftOuttake = hardwareMap.dcMotor.get("leftOuttake");
+        DcMotor rightOuttake = hardwareMap.dcMotor.get("rightOuttake");
+        DcMotor intake = hardwareMap.dcMotor.get("intake");
+
+        double OuttakeSpeed = 0.000;
 
         // Reverse the right side motors. This may be wrong for your setup.
         // If your robot moves backwards when commanded to go forwards,
@@ -25,6 +30,39 @@ public class MecanumTeleOp extends LinearOpMode {
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
+
+        /*
+        if(gamepad1.a){
+            leftOuttake.setPower(1);
+            rightOuttake.setPower(1);
+        }
+        if(gamepad1.b){
+            leftOuttake.setPower(0);
+            rightOuttake.setPower(0);
+        }
+````````*/
+
+        if(gamepad1.left_bumper){
+            OuttakeSpeed -= 0.001;
+        }
+        if(gamepad1.right_bumper){
+            OuttakeSpeed += 0.001;
+        }
+
+        if(gamepad1.x){
+            intake.setPower(1);
+        }
+        if(gamepad1.y){
+            intake.setPower(0);
+        }
+
+        rightOuttake.setPower(OuttakeSpeed);
+        leftOuttake.setPower(OuttakeSpeed);
+
+        telemetry.addData("Outtake RPM: ", (OuttakeSpeed * 1000));
+        telemetry.update();
+
+
 
         if (isStopRequested()) return;
 
