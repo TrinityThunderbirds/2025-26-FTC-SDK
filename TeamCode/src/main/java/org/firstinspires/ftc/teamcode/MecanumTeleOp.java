@@ -74,7 +74,7 @@ public class MecanumTeleOp extends LinearOpMode {
                 intake.setPower(0);
             }
 
-            rightOuttake.setPower(OuttakeSpeed);
+            rightOuttake.setPower(-OuttakeSpeed);
             leftOuttake.setPower(OuttakeSpeed);
 
             telemetry.addData("Outtake RPM: ", (OuttakeSpeed * 6000));
