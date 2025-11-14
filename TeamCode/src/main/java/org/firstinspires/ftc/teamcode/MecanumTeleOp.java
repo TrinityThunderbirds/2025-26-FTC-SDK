@@ -27,6 +27,7 @@ public class MecanumTeleOp extends LinearOpMode {
 
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightOuttake.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -51,10 +52,10 @@ public class MecanumTeleOp extends LinearOpMode {
 
 
             if(gamepad1.left_bumper && !leftBumperPreviouslyPressed){
-                OuttakeSpeed -= 0.001;
+                OuttakeSpeed -= 0.002;
             }
             if(gamepad1.right_bumper && !rightBumperPreviouslyPressed){
-                OuttakeSpeed += 0.001;
+                OuttakeSpeed += 0.002;
             }
 
             leftBumperPreviouslyPressed = gamepad1.left_bumper;
