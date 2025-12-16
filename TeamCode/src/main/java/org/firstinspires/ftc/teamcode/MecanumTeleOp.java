@@ -23,6 +23,9 @@ public class MecanumTeleOp extends LinearOpMode {
         DcMotor rightOuttake = hardwareMap.dcMotor.get("rightOuttake");
         DcMotor intake = hardwareMap.dcMotor.get("intake");
 
+        DcMotor SecondIntake = hardwareMap.dcMotor.get("SecondIntake");
+
+
         double OuttakeSpeed = 0.000;
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -76,6 +79,14 @@ public class MecanumTeleOp extends LinearOpMode {
             }
             if(gamepad1.y){
                 intake.setPower(0);
+            }
+
+            // second intake controls
+            if(gamepad1.b){
+                SecondIntake.setPower(1);
+            }
+            if(gamepad1.a){
+                SecondIntake.setPower(0);
             }
 //idk lol
             rightOuttake.setPower(OuttakeSpeed);
