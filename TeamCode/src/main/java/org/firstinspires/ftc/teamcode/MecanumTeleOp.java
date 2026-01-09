@@ -57,10 +57,10 @@ public class MecanumTeleOp extends LinearOpMode {
 
 
             if(gamepad1.left_bumper && !leftBumperPreviouslyPressed){
-                OuttakeSpeed = 0.000;
+                OuttakeSpeed -= 0.050;
             }
             if(gamepad1.right_bumper && !rightBumperPreviouslyPressed){
-                OuttakeSpeed = 0.500;
+                OuttakeSpeed += 0.050;
             }
 
             leftBumperPreviouslyPressed = gamepad1.left_bumper;
