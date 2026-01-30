@@ -31,6 +31,7 @@ public class MecanumTeleOp extends LinearOpMode {
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
         backRightMotor.setDirection(DcMotor.Direction.FORWARD);
+        intake.setDirection(DcMotor.Direction.REVERSE);
         
         rightOuttake.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -74,7 +75,7 @@ public class MecanumTeleOp extends LinearOpMode {
             }
 
             if(gamepad1.x){
-                intake.setPower(-1);
+                intake.setPower(1);
             }
             if(gamepad1.y){
                 intake.setPower(0);
